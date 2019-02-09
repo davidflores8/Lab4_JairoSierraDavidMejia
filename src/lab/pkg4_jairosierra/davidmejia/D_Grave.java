@@ -40,7 +40,7 @@ public class D_Grave extends Delito{
 
     @Override
     public String toString() {
-        return super.toString()+ "Delito Grave\n" + "Puntuacion: " + puntuacion + '}';
+        return super.toString()+ "\nDelito Grave\n" + "Puntuacion: " + puntuacion + '}';
     }
     
     

@@ -52,7 +52,7 @@ public class Vandalismo extends D_Menor{
 
     @Override
     public String toString() {
-        return super.toString()+"Vandalismo{" + "Edificacion=" + Edificacion + ", Pisos=" + Pisos + ", Nombre=" + Nombre + '}';
+        return super.toString()+"\nVandalismo{" + "\nEdificacion=" + Edificacion + "\nPisos=" + Pisos + "\nNombre=" + Nombre + '}';
     }
     
     

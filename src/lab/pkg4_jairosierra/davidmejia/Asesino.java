@@ -40,12 +40,12 @@ public class Asesino extends Agentes{
 
     @Override
     public String toString() {
-        return super.toString()+"Asesino{" + "Nombre1=" + Nombre1 + ", Arma=" + Arma + '}';
+        return super.toString()+"\nAsesino{" + "\nNombre1=" + Nombre1 + "\nArma=" + Arma + '}';
     }
 
     @Override
     public void cometer_delito() {
-        System.out.println("Asesino{" + "Nombre1=" + Nombre1 + ", Arma=" + Arma + '}');
+        System.out.println("\nAsesino{" + "\nNombre1=" + Nombre1 + "\nArma=" + Arma + '}');
     }
     
 }

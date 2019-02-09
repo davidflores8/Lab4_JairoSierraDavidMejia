@@ -5,17 +5,21 @@
  */
 package lab.pkg4_jairosierra.davidmejia;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jairo Sierra
  */
 public class Criminales {
+
     protected String Nombre;
     protected int Edad;
-   protected String Genero;
-  protected String Pais;
-  protected String Encarcelado;
-  protected String Descripción;
+    protected String Genero;
+    protected String Pais;
+    protected String Encarcelado;
+    protected String Descripción;
+    protected ArrayList<Delito> delito = new ArrayList();
 
     public Criminales() {
     }
@@ -27,6 +31,14 @@ public class Criminales {
         this.Pais = Pais;
         this.Encarcelado = Encarcelado;
         this.Descripción = Descripción;
+    }
+
+    public ArrayList<Delito> getDelito() {
+        return delito;
+    }
+
+    public void setDelito(ArrayList<Delito> delito) {
+        this.delito = delito;
     }
 
     public String getNombre() {
@@ -79,7 +91,8 @@ public class Criminales {
 
     @Override
     public String toString() {
-        return "Criminales{" + "Nombre=" + Nombre + ", Edad=" + Edad + ", Genero=" + Genero + ", Pais=" + Pais + ", Encarcelado=" + Encarcelado + ", Descripcion=" + Descripción + '}';
+        
+        return "Criminales{" +"\nNombre=" + Nombre + "\nEdad=" + Edad + "\nGenero=" + Genero + "\nPais=" + Pais + "\nEncarcelado=" + Encarcelado + "\nDescripci\u00f3n=" + Descripción + "\ndelito=" + delito + '}';
     }
-  
+
 }

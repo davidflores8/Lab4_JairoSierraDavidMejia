@@ -12,10 +12,17 @@ package lab.pkg4_jairosierra.davidmejia;
 public class Miexception extends Exception {
 
     public Miexception() {
+        super();
     }
 
     public Miexception(String string) {
         super(string);
     }
+
+    @Override
+    public String toString() {
+        return "Miexception{" + '}';
+    }
+    
     
 }

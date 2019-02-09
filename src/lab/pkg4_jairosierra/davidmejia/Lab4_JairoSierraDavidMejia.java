@@ -6,6 +6,7 @@
 package lab.pkg4_jairosierra.davidmejia;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -17,6 +18,9 @@ public class Lab4_JairoSierraDavidMejia {
     static Scanner r = new Scanner(System.in);
     static ArrayList<Delito> delitos = new ArrayList();
     static ArrayList<Criminales> criminales = new ArrayList();
+    static int terroristas=0;
+    static int secuestradores=0;
+    static int asesinos=0;
 
     /**
      * @param args the command line arguments
@@ -25,54 +29,61 @@ public class Lab4_JairoSierraDavidMejia {
         // TODO code application logic here
         int op = 0;
         int opc = 0;
-        while (op != 5) {
+        while (op != 4) {
             Menu();
             op = r.nextInt();
+            try{
+                validar(op);
+            }
+            catch (Miexception ex) {
+                        System.out.println(ex.getMessage());
+                    }
             switch (op) {
                 case 1:
+                    op=0;
                     System.out.println(" ");
                     System.out.println("1) Crear delito: ");
                     System.out.println("2) Modificar delito: ");
                     System.out.println("3) Eliminar delito: ");
                     System.out.println("4) Listar delito");
                     opc = r.nextInt();
-                    try{
+                    try {
                         validar(opc);
-                    switch (opc) {
-                        case 1:
-                            System.out.println(" ");
-                            Registro();
-                            break;
-                        case 2:
-                            System.out.println(" ");
-                            System.out.println(" ");
-                            PrintDelito();
-                            System.out.println(" ");
-                            System.out.println("Ingrese el subindice del delito que desea modificar: ");
-                            int sub = r.nextInt();
-                            ModificarDelito(sub);
-                            break;
-                        case 3:
-                            System.out.println("");
-                            PrintDelito();
-                            System.out.println(" ");
-                            System.out.println("Ingrese el subindice del delito que desea eliminar: ");
-                            int sub2 = r.nextInt();
-                            delitos.remove(sub2);
-                            System.out.println("Delito removido exitosamente ");
-                            break;
-                        case 4:
-                            System.out.println(" ");
-                            PrintDelito();
-                            break;
-                        default:
-                            System.out.println("La opcion no es valida");
-                            break;
-                    }
                     }
                     catch (Miexception ex) {
-            System.out.println(ex.getMessage());
-        }
+                        System.out.println(ex.getMessage());
+                    }
+                        switch (opc) {
+                            case 1:
+                                System.out.println(" ");
+                                Registro();
+                                break;
+                            case 2:
+                                System.out.println(" ");
+                                System.out.println(" ");
+                                PrintDelito();
+                                System.out.println(" ");
+                                System.out.println("Ingrese el subindice del delito que desea modificar: ");
+                                int sub = r.nextInt();
+                                ModificarDelito(sub);
+                                break;
+                            case 3:
+                                System.out.println("");
+                                PrintDelito();
+                                System.out.println(" ");
+                                System.out.println("Ingrese el subindice del delito que desea eliminar: ");
+                                int sub2 = r.nextInt();
+                                delitos.remove(sub2);
+                                System.out.println("Delito removido exitosamente ");
+                                break;
+                            case 4:
+                                System.out.println(" ");
+                                PrintDelito();
+                                break;
+                            default:
+                                System.out.println("La opcion no es valida");
+                                break;
+                        }
                     break;
                 case 2:
                     System.out.println(" ");//CRIMINALES
@@ -112,7 +123,9 @@ public class Lab4_JairoSierraDavidMejia {
                         System.out.println(ex.getMessage());
                     }
                     break;
-
+                case 3:
+                    TAS();
+                    break;
             }
         }
     }
@@ -121,9 +134,8 @@ public class Lab4_JairoSierraDavidMejia {
         System.out.println("-- MENU PRINCIPAL --");
         System.out.println("1) Delitos: ");
         System.out.println("2) Criminales: ");
-        System.out.println("3) Agentes: ");
-        System.out.println("4) TAS");
-        System.out.println("5) Salir");
+        System.out.println("3) TAS");
+        System.out.println("4) Salir");
     }
 
     public static void PrintDelito() {
@@ -171,8 +183,11 @@ public class Lab4_JairoSierraDavidMejia {
         System.out.println("Ingrese el pais del delito: ");
         r.nextLine();
         String pais = r.nextLine();
+        int numero=0;
+        try{
         System.out.println("Ingrese el numero de delito: ");
-        int numero = r.nextInt();
+        numero = r.nextInt();
+            validar(numero);
         System.out.println(" ");
         System.out.println("¿Es delito mayor o delito menor?");
         System.out.println("1. Delito mayor: ");
@@ -209,6 +224,10 @@ public class Lab4_JairoSierraDavidMejia {
                 }
             }
         } catch (Miexception ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
+        catch (Miexception ex) {
             System.out.println(ex.getMessage());
         }
     }
@@ -454,7 +473,6 @@ public class Lab4_JairoSierraDavidMejia {
         r.nextLine();
         String Genero = r.nextLine();
         System.out.println("Ingrese el pais de residencia : ");
-        r.nextLine();
         String Pais = r.nextLine();
         System.out.println("Menu");
         System.out.println("1) Encarcelado");
@@ -499,10 +517,8 @@ public class Lab4_JairoSierraDavidMejia {
                                 r.nextLine();
                                 String Pais1 = r.nextLine();
                                 System.out.println("Ingrese la ciudad: ");
-                                r.nextLine();
                                 String Ciudad = r.nextLine();
                                 System.out.println("Ingrese el metodo: ");
-                                r.nextLine();
                                 String Metodo = r.nextLine();
                                 criminales.add(new Terroristas(Pais1, Ciudad, Metodo, Nombre, Edad, Genero, Pais, Encarcelado, Descripcion));
                                 break;
@@ -511,7 +527,6 @@ public class Lab4_JairoSierraDavidMejia {
                                 r.nextLine();
                                 String Nombre1 = r.nextLine();
                                 System.out.println("Ingrese el arma: ");
-                                r.nextLine();
                                 String Arma = r.nextLine();
                                 criminales.add(new Asesino(Nombre1, Arma, Nombre, Edad, Genero, Pais, Encarcelado, Descripcion));
                                 break;
@@ -789,8 +804,10 @@ public class Lab4_JairoSierraDavidMejia {
     }
 
     public static void validar(int n) throws Miexception {
-        while (Integer.toString(n).matches("[0-9]+$") == false) {
-            throw new Miexception("no se aceptan letras,solo numeros");
+        String s = Integer.toString(n);
+        if (s.matches("^[0-9]+$"))
+        {
+//            System.out.println("no se aceptan letras,solo numeros");
         }
 
     }
@@ -801,15 +818,40 @@ public class Lab4_JairoSierraDavidMejia {
         try {
             validar(pos);
             for (Criminales criminale : criminales) {
-                if (criminales.get(pos) instanceof Terroristas) {
+                if (criminales.get(pos) instanceof Terroristas && terroristas<1) {
                     ((Terroristas) criminales.get(pos)).cometer_delito();
+                    terroristas++;
                 }
-                if (criminales.get(pos) instanceof Asesino) {
+                if (criminales.get(pos) instanceof Asesino && asesinos<1) {
                     ((Asesino) criminales.get(pos)).cometer_delito();
+                    asesinos++;
                 }
-                if (criminales.get(pos) instanceof Secuestrador) {
+                if (criminales.get(pos) instanceof Secuestrador && secuestradores<1) {
                     ((Secuestrador) criminales.get(pos)).cometer_delito();
+                    secuestradores++;
                 }
+            }
+        } catch (Miexception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+   public static void agregardelitoalcriminal() {
+        System.out.println("Ingrese la posicion del delito: ");
+        int pos = r.nextInt();
+        try {
+            validar(pos);
+            System.out.println("Ingrese la posicion del criminal: ");
+            int p = r.nextInt();
+            try {
+                validar(p);
+                for (Criminales c : criminales) {
+                    if (c instanceof Criminales) {
+                       ((Criminales)criminales.get(p)).getDelito().add(((Delito)delitos.get(pos)));
+                    }
+                }
+            } catch (Miexception ex) {
+                System.out.println(ex.getMessage());
             }
         } catch (Miexception ex) {
             System.out.println(ex.getMessage());

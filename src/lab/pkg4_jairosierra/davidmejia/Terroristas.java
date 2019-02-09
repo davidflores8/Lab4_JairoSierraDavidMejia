@@ -50,7 +50,7 @@ public class Terroristas extends Agentes{
 
     @Override
     public String toString() {
-        return super.toString()+"Terroristas{" + "Pais1=" + Pais1 + ", Ciudad=" + Ciudad + ", Metodo=" + Metodo + '}';
+        return super.toString()+"\nTerroristas{" + "\nPais1=" + Pais1 + "\nCiudad=" + Ciudad + "\nMetodo=" + Metodo + '}';
     }
 
     @Override

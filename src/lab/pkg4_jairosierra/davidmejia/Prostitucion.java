@@ -33,7 +33,7 @@ public class Prostitucion extends D_Menor{
 
     @Override
     public String toString() {
-        return super.toString()+"Prostitucion{" + "nombre del solicitante=" + nombre + '}';
+        return super.toString()+"\nProstitucion{" + "\nnombre del solicitante=" + nombre + '}';
     }
     
 }

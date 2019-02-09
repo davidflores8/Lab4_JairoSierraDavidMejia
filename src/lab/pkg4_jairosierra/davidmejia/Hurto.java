@@ -43,7 +43,7 @@ public class Hurto extends D_Menor{
 
     @Override
     public String toString() {
-        return super.toString()+"Hurto{" + "Objeto hurtado=" + Objeto + ", Valor=" + Valor + '}';
+        return super.toString()+"\nHurto{" + "\nObjeto hurtado=" + Objeto + "\nValor=" + Valor + '}';
     }
     
 }
